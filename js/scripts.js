@@ -32,3 +32,46 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+    const ctx = document.getElementById('skillsChart');
+    
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: [
+                'Observability', 
+                'Cloud (GCP/K8s)', 
+                'Automation', 
+                'Linux Admin', 
+                'Operations', 
+                'Leadership'
+            ],
+            datasets: [{
+                label: 'Proficiency Level',
+                data: [95, 90, 85, 92, 80, 75], // Ubah angka ini (0-100) sesuai keinginan Anda
+                fill: true,
+                backgroundColor: 'rgba(189, 112, 55, 0.2)', // Warna primary transparan
+                borderColor: '#bd7037', // Warna primary rirula
+                pointBackgroundColor: '#bd7037',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#bd7037'
+            }]
+        },
+        options: {
+            elements: {
+                line: { borderWidth: 3 }
+            },
+            scales: {
+                r: {
+                    angleLines: { display: true },
+                    suggestedMin: 0,
+                    suggestedMax: 100,
+                    ticks: { display: false }
+                }
+            },
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
